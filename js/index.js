@@ -27,7 +27,11 @@ aim({
 	clientY: 300
 });
 
+//on body loading
+function start()
+{
 
+}
 
 // set up start drag event
 window.addEventListener("mousedown", draw);
@@ -65,14 +69,14 @@ function aim(e) {
 	var arrowX = Math.min(pivot.x - ((1 / scale) * distance), 88);
 	TweenMax.to(".arrow-angle", 0.3, {
 		rotation: bowAngle + "rad",
-		svgOrigin: "100 250"
+		svgOrigin: "50 250"
 	});
 	TweenMax.to(".arrow-angle use", 0.3, {
 		x: -distance
 	});
 	TweenMax.to("#bow polyline", 0.3, {
 		attr: {
-			points: "88,200 " + Math.min(pivot.x - ((1 / scale) * distance), 88) + ",250 88,300"
+			points: "88,100 " + Math.min(pivot.x - ((1 / scale) * distance), 88) + ",250 88,400"
 		}
 	});
 
@@ -85,7 +89,7 @@ function aim(e) {
 
 	TweenMax.to("#arc", 0.3, {
 		attr: {
-			d: "M100,250c" + offset.x + "," + offset.y + "," + (arcWidth - offset.x) + "," + (offset.y + 50) + "," + arcWidth + ",50"
+			d: "M50,250c" + offset.x + "," + offset.y + "," + (arcWidth - offset.x) + "," + (offset.y + 50) + "," + arcWidth + ",50"
 		},
 			autoAlpha: distance/60
 	});
@@ -104,7 +108,7 @@ function loose() {
 	});
 	TweenMax.to("#bow polyline", 0.4, {
 		attr: {
-			points: "88,200 88,250 88,300"
+			points: "88,100 88,250 88,400"
 		},
 		ease: Elastic.easeOut
 	});
@@ -157,9 +161,20 @@ function hitTest(tween) {
 		var selector = ".hit";
 		if (distance < 7) {
 			selector = ".bullseye"
-
 		}
 		showMessage(selector);
+		if(selector==".hit")
+		{
+			document.getElementById("cent_btn").style.visibility="hidden";
+			document.getElementById("miss_btn").style.visibility="hidden";
+			document.getElementById("hit_btn").style.visibility="visible";
+		}
+		else
+		{
+			document.getElementById("miss_btn").style.visibility="hidden";
+			document.getElementById("hit_btn").style.visibility="hidden";
+			document.getElementById("cent_btn").style.visibility="visible";
+		}
 	}
 
 }
@@ -167,6 +182,9 @@ function hitTest(tween) {
 function onMiss() {
 	// Damn!
 	showMessage(".miss");
+	document.getElementById("cent_btn").style.visibility="hidden";
+	document.getElementById("hit_btn").style.visibility="hidden";
+	document.getElementById("miss_btn").style.visibility="visible";
 
 }
 
@@ -191,7 +209,7 @@ function showMessage(selector) {
 		scale: 0,
 		ease: Back.easeIn
 	}, .03);
-	document.getElementById("miss_button").style.visibility="visible";
+	
 }
 
 
