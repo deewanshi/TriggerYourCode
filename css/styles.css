@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+html{height:100%;width: 100%;overflow: hidden;position:relative;}
+
+body {
+    /*background: #00cc99;*/
+    background: url("https://cdn.dribbble.com/users/576057/screenshots/3476172/pka_www.ccccccc.dk_motiondesign_arrow.gif") no-repeat center;
+    background-position: right;
+    background-size: cover;
+    width: 100%;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    word-spacing: 40px;
+    user-select: none;
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 80px;
+    color: #D4E6F1;
+}
+
+#cont {
+    width: 600px;
+    height: auto;
+    margin: 50px auto auto auto;
+}
+
+#box {
+    width: 100%;
+    height: 300px;
+    background: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 30px;
+    
+    margin-top: 10px;
+    opacity: 1;
+}
+
+
+
+#crcl:hover {
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, .2);
+}
+
+.field {
+    width: 500px;
+    height: 50px;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 20px;
+    border: none;
+    color: #3f3f3f;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+    margin: 15px 0 0 0;
+    text-align: center;
+    display: block;
+    margin: 35px auto 0 auto;
+
+}
+
+.field:hover {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    cursor: default;
+}
+
+.field:focus {
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+::selection {
+    background: #df2b4f;
+    color: #fff;
+}
+
+#btn {
+    font-size: 20px;
+    width: 130px;
+    height: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #df2b4f;
+    transition: .1s linear;
+    box-sizing: border-box;
+    display: block;
+    margin: 22px auto 0 auto;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.16), 0 5px 7px rgba(0, 0, 0, 0.23);
+    border-radius: 30px;
+    font-weight: 900;
+}
+
+#btn:hover {
+    background: #dc143c;
+}
+
+#btn:active {
+    box-shadow: none;
+}
+
+footer {
+    margin: 50px auto 0 auto;
+    box-sizing: border-box;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    word-spacing: 15px;
+    user-select: none;
+}
+
+footer i {
+    transition: .3s ease-in-out;
+    text-shadow: 10px 10px 0px rgba(0, 0, 0, .3);
+    
+}
+
+footer i:hover {
+    color: #e34262;
+    cursor: pointer;
+}
