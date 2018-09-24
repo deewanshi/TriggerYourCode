@@ -6,7 +6,7 @@ body {
   height: 100%;
   display: flex;
   justify-content: space-around;
-  background: url(https://i.ytimg.com/vi/qVYyGleZhCI/maxresdefault.jpg) no-repeat center center fixed;
+  background: no-repeat center center fixed;
   background-size: cover;
   flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
@@ -134,7 +134,7 @@ div {
     background: #f4f4f4;
     border: 7px solid rgba(0, 0, 0, 0.1);
     height: 300px; /* maximum height of the box, feel free to change this! */
-    margin-top: 1px;
+    margin-top: 100px;
     }
     .output{
       font-family: 'Aclonica';
