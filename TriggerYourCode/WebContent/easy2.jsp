@@ -1,3 +1,5 @@
+<%@page import="code.dao.UserDao"%>
+<%@page import="code.model.Answers"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +9,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
-</head>
+<% 
+	UserDao user=new UserDao();
+  	int score=user.getUserScore(session.getAttribute("username").toString());
+  	session.setAttribute("score", score);
+  	session.setAttribute("questionnumber",2);
+  %>
+
 <body style="background-image: url(images/background.jpg)">
   <div class="nav-container">
     <div class="navbar">
       <div class="mobileMenu"></div>
-      <p class="left-item"><i class="fas fa-clock"></i></p>
+      <p class="left-item">Score <span id="score" ><%=score %></span></p>
      <div id="clockdiv"></div> 
       
     </div>
@@ -49,15 +57,14 @@ aaw kw
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea placeholder="Lets see " style="height: 286px;width: 526px;"></textarea>
+          <textarea placeholder="Lets see " name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>
     
-        
       </fieldset>
     </form>
-  <button type="button" class="btn btn-primary"  style="font-size: 20px;">Submit</button>
+  
 <button type="button" class="btn btn-success" onclick="myFunction()" style="font-size: 20px;">Next</button>
 
 </div>
@@ -72,7 +79,10 @@ aaw kw
 
   <script>
 function myFunction() {
-window.open("qualified.html",'_self');   
+
+	var answer=document.getElementById("answer").value;
+	var param="?qnumber="+2+"&type=easy&answer="+answer;
+	window.open("Question.jsp"+param,'_self');  
 }
 
 

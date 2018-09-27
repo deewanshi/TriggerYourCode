@@ -38,6 +38,6 @@ public class UserServlet extends  HttpServlet{
 		user.setYear(req.getParameter("year"));
 		user.setBranch(req.getParameter("branch"));
 		user.setGender(req.getParameter("gender"));
-		userdao.addUser(user);
+		//userdao.addUser(user);
 	}
 }

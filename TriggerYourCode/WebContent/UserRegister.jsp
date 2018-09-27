@@ -10,11 +10,12 @@
 </head>
 <body>
 <%
-	User user=new User();
+	 User user=new User();
+	
 	user.setName(request.getParameter("name"));
 	user.setCollege(request.getParameter("college"));
 	user.setEmail(request.getParameter("email"));
-	user.setMobile(request.getParameter("mobile"));
+	user.setMobile(request.getParameter("number"));
 	user.setUsername(request.getParameter("username"));
 	user.setPassword(request.getParameter("password"));
 	user.setYear(request.getParameter("year"));
@@ -25,7 +26,18 @@
 	if(status>0)
 		response.sendRedirect("succ.html");
 	else
-		response.sendRedirect("register.html");
+		response.sendRedirect("reg.jsp");
+	session.setAttribute("name", request.getParameter("name"));
+	session.setAttribute("college", request.getParameter("college"));
+	session.setAttribute("email", request.getParameter("email"));
+	session.setAttribute("mobile", request.getParameter("number"));
+	session.setAttribute("username", request.getParameter("username"));
+	session.setAttribute("password", request.getParameter("password"));
+	session.setAttribute("year", request.getParameter("year"));
+	session.setAttribute("branch", request.getParameter("branch"));
+	session.setAttribute("gender", request.getParameter("gender"));
+//out.println(request.getParameter("name"));
+
 
 %>
 </body>

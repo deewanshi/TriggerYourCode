@@ -88,5 +88,11 @@ public class User {
 	String username;
 	String email;
 	String password;
-	
+	int score;
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
 }

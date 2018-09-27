@@ -2,7 +2,9 @@ package code.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import code.model.User;
 import code.util.DatabaseConnection;
@@ -15,7 +17,7 @@ public class UserDao {
         connection = DatabaseConnection.getConnection();
     }
  
-    public int addUser(User user) {
+    public int addUser(User user) throws SQLException {
         int status = 0;
     	try {
             PreparedStatement preparedStatement = connection.prepareStatement("insert into user(name,college,mobile,year,email,branch,gender,username,password) values (?, ?, ?, ?,?,?,?,?,?)");
@@ -31,12 +33,47 @@ public class UserDao {
             preparedStatement.setString(8,user.getUsername());
             preparedStatement.setString(9,user.getPassword());
             status=preparedStatement.executeUpdate();
-            
+            //preparedStatement = connection.prepareStatement("insert into current(username,
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    	connection.close();
     	return status;
     }
-  
- 
+    public int checkUser(String username,String password) throws SQLException {
+    	String sql="select username,password from user";
+    	Statement st = connection.createStatement();
+    	ResultSet rs = st.executeQuery(sql);
+    	String name = null,pass=null;
+    	while (rs.next())
+        {
+    		name=rs.getString("username");
+    		pass=rs.getString("password");
+        }
+    	if(name.equals(username) && pass.equals(password))
+    		return 1;
+    	connection.close();
+    	return 0;
+    }
+    public int getUserScore(String username) throws SQLException {
+    	
+    	String sql="select score from user where username='"+username+"'";
+    	Statement st = connection.createStatement();
+    	ResultSet rs = st.executeQuery(sql);
+    	int score=0;
+    	while(rs.next()) {
+    		score=rs.getInt("score");
+    	}
+    	connection.close();
+    	return score;
+    	
+    }
+    public void setUserScore(String username,int score) throws SQLException {
+    	
+    	String sql="update user set score="+score+" where username='"+username+"'";
+    	Statement st = connection.createStatement();
+    	st.executeUpdate(sql);
+    	st.executeUpdate(sql);
+    	connection.close();
+    }
 }
