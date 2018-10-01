@@ -11,7 +11,7 @@
 	UserDao user=new UserDao();
   	int score=user.getUserScore(session.getAttribute("username").toString());
 %>
-<body>
+<body style="background-image: url(images/gameover.jpeg)"">
 <p class="over">GAME OVER</p>
 <p class="score">Score: <span id="score" ><%=score %></p>
 <%session.invalidate(); %>

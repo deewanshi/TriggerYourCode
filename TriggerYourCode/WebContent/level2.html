@@ -109,7 +109,11 @@
     <script  src="js/index.js"></script>
     <script type="text/javascript" src="js/timer.js"></script>
 
-
+<script>
+function preventBack() { window.history.forward(); }
+setTimeout("preventBack()", 0);
+window.onunload = function () { null };
+</script>
 
 
 </body>

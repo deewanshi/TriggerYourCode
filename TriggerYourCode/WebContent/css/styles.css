@@ -3,7 +3,7 @@ html{height:100%;width: 100%;overflow: hidden;position:relative;}
 
 body {
     /*background: #00cc99;*/
-    background: url("https://cdn.dribbble.com/users/576057/screenshots/3476172/pka_www.ccccccc.dk_motiondesign_arrow.gif") no-repeat center;
+    background: no-repeat center;
     background-position: right;
     background-size: cover;
     width: 100%;

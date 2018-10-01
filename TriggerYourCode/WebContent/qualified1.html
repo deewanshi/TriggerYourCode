@@ -3,11 +3,11 @@
 <head>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <link href="https://fonts.googleapis.com/css?family=Lobster|PT+Serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Kreon" rel="stylesheet">
-
+<link rel="stylesheet" href="css/bootstrap.min.css" >
 <title> qualified</title>
 </head>
 
@@ -17,9 +17,12 @@ function myFunction() {
 window.open("level3.html",'_self');   
 }
 
-
+function preventBack() { window.history.forward(); }
+setTimeout("preventBack()", 0);
+window.onunload = function () { null };
 </script>
-
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 
 <style>

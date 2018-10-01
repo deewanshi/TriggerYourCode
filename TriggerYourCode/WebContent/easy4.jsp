@@ -6,9 +6,8 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/styleeasy.css">
 <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-</head>
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
 </head>
 <% 
 	UserDao user=new UserDao();
@@ -32,9 +31,9 @@
 	<div class="card" onclick="flip(event)">
     <div class="front">
       <h1>Easy Level</h1>
-      <img class="dart" src="http://www.i2clipart.com/cliparts/e/d/b/2/clipart-dartboard-256x256-edb2.png" width="250px">
+      <img class="dart" src="images/dart.png" width="250px">
        <h1 class="below">Click The Dart<br>To Flip The Card</h1>
-      <img class="gif" src="https://oliveasia.com/newsletter/arrow.gif" width="50px">
+      <img class="gif" src="images/arrowicon.gif" width="50px">
 
     </div>
     <div class="back">
@@ -87,7 +86,9 @@ function myFunction() {
 	window.open("Question.jsp"+param,'_self');  
 }
 
-
+function preventBack() { window.history.forward(); }
+setTimeout("preventBack()", 0);
+window.onunload = function () { null };
 
 </script>
 </html>

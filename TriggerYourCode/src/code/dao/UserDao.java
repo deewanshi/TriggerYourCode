@@ -42,7 +42,7 @@ public class UserDao {
     	return status;
     }
     public int checkUser(String username,String password) throws SQLException {
-    	String sql="select username,password from user";
+    	String sql="select username,password from user where username='"+username+"'";
     	Statement st = connection.createStatement();
     	ResultSet rs = st.executeQuery(sql);
     	String name = null,pass=null;
@@ -51,8 +51,12 @@ public class UserDao {
     		name=rs.getString("username");
     		pass=rs.getString("password");
         }
+    	System.out.println();
     	if(name.equals(username) && pass.equals(password))
+    	{	System.out.println("Matched");
     		return 1;
+    		
+    	}
     	connection.close();
     	return 0;
     }

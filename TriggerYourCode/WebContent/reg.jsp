@@ -79,7 +79,7 @@ hr.style-eight:after {
   border-radius: 5px;
   border-color: black;
 }
-.AA input[type="number"]{
+.AA input[type="tel"]{
   border-radius: 5px;
   border-color: black;
 }
@@ -167,8 +167,8 @@ function validateForm() {
       return false;
     }
 
-    else if(p==""){
-      alert("Password must be filled out");
+    else if(p==""||p.length<5){
+      alert("Password must be filled out and minimum length should be 5");
       return false;
 
     }
@@ -201,7 +201,9 @@ document.getElementById("myForm").submit();
 
   
 
-
+function preventBack() { window.history.forward(); }
+setTimeout("preventBack()", 0);
+window.onunload = function () { null };
 
 
 </script>
@@ -239,7 +241,7 @@ document.getElementById("myForm").submit();
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">+91 </span>
             </div>
-            <input type="number" name="number" class="form-control" placeholder="Phone Number" aria-label="number" aria-describedby="basic-addon1" >
+            <input type="tel" name="number" class="form-control" placeholder="Phone Number" aria-label="number" aria-describedby="basic-addon1" >
             </div>
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -276,7 +278,7 @@ document.getElementById("myForm").submit();
 
           <div class="form-group col-md-6">
               <label for="inputCollege">Password</label>
-              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+              <input minlength="5" type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required="true">
             </div>
 
           </div>

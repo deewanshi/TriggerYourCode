@@ -18,7 +18,7 @@ public class DatabaseConnection {
 	public static Connection getConnection() {
         try  {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/code","root","root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/code","root","teapot456");
             //createDatabase();
             return con;
         }

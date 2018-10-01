@@ -59,7 +59,7 @@
 			response.sendRedirect("medium"+(qnumber+1)+".jsp");
 		else
 		{
-			if(score<75)
+			if(score<50)
 				response.sendRedirect("gameover.jsp");
 			else
 				response.sendRedirect("qualified1.html");
