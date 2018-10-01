@@ -31,4 +31,11 @@ public class Answers {
 	int qnumber;
 	String answer;
 	String qtype;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	String username;
 }

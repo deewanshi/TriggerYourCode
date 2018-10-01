@@ -13,12 +13,14 @@
 <body>
 <%
 	int score=0;
-    int qnumber=Integer.parseInt(session.getAttribute("questionnumber").toString());
+  	String username=session.getAttribute("username").toString();
+	int qnumber=Integer.parseInt(session.getAttribute("questionnumber").toString());
 	if(request.getParameter("type").equals("easy")){
 	Answers ans=new Answers();
     ans.setQnumber(Integer.parseInt(request.getParameter("qnumber")));
     ans.setQtype(request.getParameter("type"));
 	ans.setAnswer(request.getParameter("answer"));
+	ans.setUsername(username);
 	AnswerDao ansdao=new AnswerDao();
 	ansdao.addAnswer(ans);
 	QuestionDao dao=new QuestionDao();
@@ -43,6 +45,7 @@
 	    ans.setQnumber(Integer.parseInt(request.getParameter("qnumber")));
 	    ans.setQtype(request.getParameter("type"));
 		ans.setAnswer(request.getParameter("answer"));
+		ans.setUsername(username);
 		AnswerDao ansdao=new AnswerDao();
 		ansdao.addAnswer(ans);
 		QuestionDao dao=new QuestionDao();
@@ -68,6 +71,7 @@
 	    ans.setQnumber(Integer.parseInt(request.getParameter("qnumber")));
 	    ans.setQtype(request.getParameter("type"));
 		ans.setAnswer(request.getParameter("answer"));
+		ans.setUsername(username);
 		AnswerDao ansdao=new AnswerDao();
 		ansdao.addAnswer(ans);
 		QuestionDao dao=new QuestionDao();

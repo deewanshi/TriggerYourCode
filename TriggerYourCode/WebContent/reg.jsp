@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -50,7 +48,7 @@
     text-align: center;
 }
 hr.style-eight:after {
-    content: "ยง";
+    content: "ง";
     display: inline-block;
     position: relative;
     top: -0.7em;
@@ -115,12 +113,18 @@ function validateForm() {
     var e=document.forms["myForm"]["email"].value;
     var u=document.forms["myForm"]["username"].value;
     var p=document.forms["myForm"]["password"].value;
-    var gender=document.forms["myforms"]["gender"].value;
-    var year=document.forms["myforms"]["year"].value;
      var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
-     
-     
-     
+     //document.getElementByName("name1") = document.forms["myForm"]["name"].value;
+ 	/* document.forms["myForm"]["college1"].value= document.forms["myForm"]["college"].value;
+ 	document.forms["myForm"]["number1"].value=document.forms["myForm"]["number"].value;
+ 	document.forms["myForm"]["branch1"].value= document.forms["myForm"]["branch"].value;
+ 	document.forms["myForm"]["email1"].value=document.forms["myForm"]["email"].value;
+ 	document.forms["myForm"]["username1"].value=document.forms["myForm"]["username"].value;
+ 	document.forms["myForm"]["password1"].value=document.forms["myForm"]["password"].value;
+ 	document.forms["myForm"]["gender1"].value=document.forms["myForm"]["gender"].value;
+ 	document.forms["myForm"]["year1"].value=document.forms["myForm"]["year"].value;
+    */
+   
     if(x=="" && y=="" && e=="" && phoneNum=="" && w=="" && document.myForm.inputGender.selectedIndex=="" && document.myForm.inputState.selectedIndex=="" && !this.myForm.checkbox.checked && u=="" && p==""){
       alert("you have left all the fields empty! please fill to proceed");
       return false;
@@ -173,33 +177,21 @@ function validateForm() {
       alert("you must agree to the terms first");
       return false;
     }
-
-    
-
-    
-   
-  
     else{
-    	var param="?name="+x+"&college="+y+"&number="+phn+"&branch="+w+"&username="+u+"&password="+p+"&year="+year+"&gender="+gender;	 
+    	//console.log("In else pleasepahuch ja yaha!!!");
     	
-    	
-    	
-    //jkdbwjsdnsdcmskjfcedkjcdkscbdsbc	
-    	
-    	
-    	
-    
-    	swal({
+    /* swal({
   title: "You have been Registered successfully!!",
   type: "success",
   text: "press OK to continue.."
  },
 function(){
   //event.preventDefault();
-  	window.open("UserRegister.jsp"+param,'_self');
-  	
-});
-    return false;
+	document.getElementById("myForm").submit();
+
+});*/
+document.getElementById("myForm").submit();
+    return true;
     }
     
     }
@@ -227,11 +219,12 @@ function(){
     <div class="container">
       
       <div class="AA">
-      <form name="myForm" onsubmit="return validateForm()">
+      <form name="myForm" action="UserRegister.jsp" method="get" id="myForm">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputName">Name</label>
-              <input type="text" name="name" class="form-control" id="inputName" placeholder="Full Name" >
+              <input type="text" name="name" class="form-control" id="inputName" placeholder="Full Name">
+              
             </div>
             <div class="form-group col-md-6">
               <label for="inputCollege">College</label>
@@ -241,13 +234,13 @@ function(){
           <div class="form-group">
             <label for="inputEmail">Email</label>
             <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address">
-          </div>
+            </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">+91 </span>
             </div>
             <input type="number" name="number" class="form-control" placeholder="Phone Number" aria-label="number" aria-describedby="basic-addon1" >
-          </div>
+            </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputBranch">Branch</label>
@@ -255,7 +248,7 @@ function(){
             </div>
             <div class="form-group col-md-4">
               <label for="input">Year</label>
-              <select id="inputState" name="year" class="form-control" >
+              <select id="inputState" class="form-control" name="year">
                 <option>Select</option>
                 <option>1</option>
                 <option>2</option>
@@ -266,11 +259,10 @@ function(){
             </div>
             <div class="form-group col-md-2">
               <label for="input">Gender</label>
-              <select id="inputGender" name="gender" class="form-control" >
+              <select id="inputGender" class="form-control" name="gender">
                 <option>Select</option>
                 <option>Male</option>
                 <option>Female</option>
-               
               </select>
             </div>
           </div>
@@ -280,12 +272,12 @@ function(){
           <div class="form-group col-md-6">
               <label for="inputName">Username</label>
               <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username">
-          </div>
+            </div>
 
           <div class="form-group col-md-6">
               <label for="inputCollege">Password</label>
               <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
-           </div>
+            </div>
 
           </div>
 
@@ -299,8 +291,9 @@ function(){
             <br>
             <button type="reset" class="btn btn-primary">Reset</button>
           
-            <button type="submit" class="btn btn-primary">Submit Details</button>
-          </div>
+            <button type="button" onClick="return validateForm()" class="btn btn-primary">Submit Details</button>
+     		
+     	</div>
          
           
           

@@ -25,9 +25,16 @@
             <input type="Username" id="username" class="field" name="username" maxlength="30" placeholder="Username" size="30" required="true" />
             <input type="Password" id="pass" class="field" name="password" minlength="5" placeholder="Password" required="true" />
             <div class="submitted">
-                <input type="submit" id="btn" value="Go !!" />
+               
+                <button type="button" onClick="return myfunction()" class="btn btn-primary" id="btn">GO!</button>
             </div>
            </form>
+           <script>
+           		function myfunction(){
+           			document.getElementById("loginForm").submit();
+           			return true;
+           		}
+           </script>
         </div>
     </div>
    

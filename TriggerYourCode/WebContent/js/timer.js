@@ -1,4 +1,4 @@
-var time_in_minutes = 180;
+var time_in_minutes = document.getElementById("temp").value;
 var current_time = Date.parse(new Date());
 var deadline = new Date(current_time + time_in_minutes*60*1000);
 
@@ -15,13 +15,10 @@ function run_clock(id,endtime){
 	var clock = document.getElementById(id);
 	function update_clock(){
 		var t = time_remaining(endtime);
-		clock.innerHTML ='Hours: '+t.hours + 'Minutes: '+t.minutes+'  Seconds: '+t.seconds;
-		document.getElementByName("Hours").value=t.Hours;
-		document.getElementByName("Minutes").value=t.Hours;
-		document.getElementByName("Seconds").value=t.seconds;
-		if(t.total<=0){ clearInterval(timeinterval); 
-		window.open("gameover.jsp"+param,'_self');
-		}
+		clock.innerHTML = 'Hours '+t.hours+' Minutes: '+t.minutes+'  Seconds: '+t.seconds;
+		//document.getElementById("min").value=(t.hours*60)+(t.minutes)+(t.seconds/60);
+		//console.log(document.getElementById("min").value);
+		if(t.total<=0){ clearInterval(timeinterval); }
 	}
 	update_clock(); // run function once at first to avoid delay
 	var timeinterval = setInterval(update_clock,1000);

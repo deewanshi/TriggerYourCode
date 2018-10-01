@@ -10,26 +10,24 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 </head>
-<input type="hidden" name="Hours" id="Hours" value="">
-<input type="hidden" name="Minutes" value="">
-<input type="hidden" name="Seconds" value="">
   <% 
+  String username=session.getAttribute("username").toString();
 	UserDao user=new UserDao();
-  	int score=user.getUserScore(session.getAttribute("username").toString());
+  	int score=user.getUserScore(username);
   	session.setAttribute("score", score);
   	session.setAttribute("questionnumber",1);
+  	user=new UserDao();
+  	int t=user.getUserTime(username);
   %>
-
-<body style="background-image: url(images/background.jpg)">
+  <input type="hidden" name="temp" id="temp" value="<%=t%>"/>
+  <body style="background-image: url(images/background.jpg)">
   <div class="nav-container">
     <div class="navbar">
       <div class="mobileMenu"></div>
       <p class="left-item">Score <span id="score" ><%=score %></span></p>
      <div id="clockdiv"></div> 
-      
+     </div>
     </div>
-    
-  </div>
 <div class="container">
 <div class="col-sm-6">
 	<div class="card" onclick="flip(event)">
@@ -79,7 +77,7 @@
   <script>
 function myFunction() {
 	var answer=document.getElementById("answer").value;
-	var param="?qnumber="+1+"&type=easy&answer="+answer;
+	var param="?qnumber="+1+"&type=easy&answer="+answer;//+"&username=";
 	window.open("Question.jsp"+param,'_self');   
 }
 </script>

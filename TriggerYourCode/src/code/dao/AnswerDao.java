@@ -16,12 +16,13 @@ public class AnswerDao {
 	public void addAnswer(Answers ans) throws SQLException {
        
     	try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into answers(qnumber,answer,qtype) values (?, ?, ?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into answers(qnumber,answer,qtype,username) values (?, ?, ?,?)");
             // Parameters start with 1
             preparedStatement.setInt(1, ans.getQnumber());
             //preparedStatement.setString(2, user.getCourse());
             preparedStatement.setString(2,ans.getAnswer());            
             preparedStatement.setString(3, ans.getQtype());
+            preparedStatement.setString(4, ans.getUsername());
             preparedStatement.executeUpdate();
             
         } catch (SQLException e) {

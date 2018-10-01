@@ -34,6 +34,7 @@ public class UserDao {
             preparedStatement.setString(9,user.getPassword());
             status=preparedStatement.executeUpdate();
             //preparedStatement = connection.prepareStatement("insert into current(username,
+           
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,7 +74,29 @@ public class UserDao {
     	String sql="update user set score="+score+" where username='"+username+"'";
     	Statement st = connection.createStatement();
     	st.executeUpdate(sql);
-    	st.executeUpdate(sql);
+    	//st.executeUpdate(sql);
     	connection.close();
+    }
+    public boolean updateUserTime(String username,int minutes) throws SQLException {
+    	String sql="update user set minutes="+minutes+" where username='"+username+"'";
+    	Statement st = connection.createStatement();
+    	int y=st.executeUpdate(sql);
+    	if(y>0)
+    		return true;
+    	
+    	connection.close();
+    	return false;
+    }
+    public int getUserTime(String username) throws SQLException {
+    	String sql="select minutes from user where username='"+username+"'";
+    	Statement st = connection.createStatement();
+    	ResultSet rs = st.executeQuery(sql);
+    	int score=0;
+    	while(rs.next()) {
+    		score=rs.getInt("minutes");
+    	}
+    	connection.close();
+    	return score;
+
     }
 }

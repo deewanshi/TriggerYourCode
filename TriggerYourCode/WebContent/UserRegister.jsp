@@ -11,8 +11,8 @@
 <body>
 <%
 	 User user=new User();
-	
-	user.setName(request.getParameter("name"));
+	String username=request.getParameter("username");
+	 user.setName(request.getParameter("name"));
 	user.setCollege(request.getParameter("college"));
 	user.setEmail(request.getParameter("email"));
 	user.setMobile(request.getParameter("number"));
@@ -23,11 +23,23 @@
 	user.setGender(request.getParameter("gender"));
 	UserDao userdao=new UserDao();
 	int status=userdao.addUser(user);
+	userdao=new UserDao();
+	//userdao.updateUserTime(username, 180);
 	if(status>0)
 		response.sendRedirect("succ.html");
 	else
-		response.sendRedirect("reg.jsp");
-	session.setAttribute("name", request.getParameter("name"));
+		response.sendRedirect("reg.jsp"); 
+	/*	out.println(request.getParameter("name"));
+		out.println(request.getParameter("college"));
+		out.println(request.getParameter("email"));
+		out.println(request.getParameter("number"));
+		out.println(request.getParameter("username"));
+		out.println(request.getParameter("password"));
+		out.println(request.getParameter("year"));
+		out.println(request.getParameter("branch"));
+		out.println(request.getParameter("gender"));
+	*/
+		session.setAttribute("name", request.getParameter("name"));
 	session.setAttribute("college", request.getParameter("college"));
 	session.setAttribute("email", request.getParameter("email"));
 	session.setAttribute("mobile", request.getParameter("number"));

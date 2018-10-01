@@ -11,10 +11,23 @@
 </head>
 <% 
 	UserDao user=new UserDao();
-  	int score=user.getUserScore(session.getAttribute("username").toString());
+	String username=session.getAttribute("username").toString();
+  	int score=user.getUserScore(username);
   	session.setAttribute("score", score);
   	session.setAttribute("questionnumber",2);
-  %>
+ 	//int h,s,m;
+ 	user=new UserDao();
+ 	//h=Integer.parseInt(request.getParameter("hours"));
+ 	//m=Integer.parseInt(request.getParameter("min"));
+ 	//s=Integer.parseInt(request.getParameter("sec"));
+ 	int temp=user.getUserTime(username);
+ 	
+ %>
+ 
+<input type="hidden" id="temp" value="<%=temp%>"/>  
+<input type="hidden" id="hours"/> 
+<input type="hidden" id="min"/>
+<input type="hidden" id="sec"/>
 
 <body style="background-image: url(images/background.jpg)">
   <div class="nav-container">
