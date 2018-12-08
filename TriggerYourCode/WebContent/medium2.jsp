@@ -14,6 +14,7 @@
   	int score=user.getUserScore(session.getAttribute("username").toString());
   	session.setAttribute("score", score);
   	session.setAttribute("questionnumber",2);
+  	user.updateCurrentPage(session.getAttribute("username").toString(),"medium2.jsp");
   %>
 
 <body style="background-image: url(images/background.jpg)">
@@ -38,15 +39,15 @@
     </div>
     <div class="back">
       <h1 style="text-decoration: underline;">Problem</h1><br>
-      <p>Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.<br><br>
-<b>Note : The order of codes are not important. And input string does not contain 0s.</b><br><br> Input format : 
-A numeric string <br>
-Constraints : 
-1 <= Length of String S <= 10<br> Sample Input: 
-1123 <br>
-Sample Output: 
-aabc kbc alc 
-aaw kw 
+      <p> A processor has 16 integer registers (R0, R1,. . . , R15) and 64 floating point 
+      registers (F0, F1,. . . , F63). It uses a 2 byte instruction format. There are four 
+      categories of instructions: Type-1, Type-2, Type-3, and Type 4. Type-1 category consists 
+      of four instructions, each with 3 integer register operands (3Rs). Type-2 category 
+      consists of eight instructions, each with 2 floating point register operands (2Fs). 
+      Type-3 category consists of fourteen instructions, each with one integer register 
+      operand and one floating point register operand (1R+1F). Type-4 category consists of N 
+      instructions, each with a floating point register operand (1F).
+<br>What is the maximum value of N?    
 </p>
     </div>
   </div>
@@ -57,7 +58,7 @@ aaw kw
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea placeholder="Lets see " name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
+          <textarea placeholder="Write your answer here!" name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>

@@ -14,6 +14,7 @@
   	int score=user.getUserScore(session.getAttribute("username").toString());
   	session.setAttribute("score", score);
   	session.setAttribute("questionnumber",1);
+	user.updateCurrentPage(session.getAttribute("username").toString(),"medium1.jsp");
   %>
 <body style="background-image: url(images/background.jpg)">
   <div class="nav-container">
@@ -37,15 +38,16 @@
     </div>
     <div class="back">
       <h1 style="text-decoration: underline;">Problem</h1><br>
-      <p>Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.<br><br>
-<b>Note : The order of codes are not important. And input string does not contain 0s.</b><br><br> Input format : 
-A numeric string <br>
-Constraints : 
-1 <= Length of String S <= 10<br> Sample Input: 
-1123 <br>
-Sample Output: 
-aabc kbc alc 
-aaw kw 
+      <p>An Internet Service Provider(ISP) has the following chunk of CIDR-based IP addresses available with it:245.248.128.0/20. 
+      The ISP wants to give half of this chunk of addreses to Organization A, and a quarter to 
+      Organization B, while retaining the remaining with itself. 
+      Which of the following is a valid allocation of addresses to A and B?
+      <br>(a)245.248.136.0/21 and 245.248.128.0/22 
+	<br>(b)	245.248.128.0/21 and 245.248.128.0/22 
+	<br>(c)	245.248.132.0/22 and 245.248.132.0/21 
+	<br>(d)	245.248.136.0/22 and 245.248.132.0/21
+	<br><br>Write correct option as <b>a</b> or <b>b</b> or <b>c</b> or <b>d</b> in answer 
+      
 </p>
     </div>
   </div>
@@ -56,7 +58,7 @@ aaw kw
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea placeholder="Lets see " name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
+          <textarea placeholder="Write your answer here!" name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>

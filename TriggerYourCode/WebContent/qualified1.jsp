@@ -1,3 +1,6 @@
+<%@page import="code.dao.UserDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +15,26 @@
 </head>
 
 
+<%
+	UserDao userdao=new UserDao();
+	userdao.updateCurrentPage(session.getAttribute("username").toString(),"qualified1.jsp");
+%>
+
+
+
 <script>
 function myFunction() {
-window.open("level2.html",'_self');   
+window.open("level3.jsp",'_self');   
 }
 
 function preventBack() { window.history.forward(); }
 setTimeout("preventBack()", 0);
 window.onunload = function () { null };
 </script>
-
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
 <style>
 
 .jumbotron{

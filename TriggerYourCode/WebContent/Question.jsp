@@ -37,7 +37,7 @@
 		if(score<25)
 			response.sendRedirect("gameover.jsp");
 		else
-			response.sendRedirect("qualified.html");
+			response.sendRedirect("qualified.jsp");
 	}
 	}
 	else if(request.getParameter("type").equals("medium")){
@@ -62,7 +62,7 @@
 			if(score<50)
 				response.sendRedirect("gameover.jsp");
 			else
-				response.sendRedirect("qualified1.html");
+				response.sendRedirect("qualified1.jsp");
 		}
 			
 	}

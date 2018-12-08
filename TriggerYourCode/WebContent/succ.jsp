@@ -1,19 +1,39 @@
+<%@page import="code.dao.UserDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-   
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+    
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <script src="bootstrap/js/jquery.min.js"></script>
+     <script src="bootstrap/js/bootstrap.min.js"></script>
     <title>See Rules</title>
   </head>
+  
+  
+  <%
+	UserDao userdao=new UserDao();
+	userdao.updateCurrentPage(session.getAttribute("username").toString(),"succ.jsp");
+%>
+  
 
 
   <script>
 function myFunction() {
-window.open("index (1).html",'_self');   
+	//var min=1; 
+    //var max=4;  
+    //var random =Math.floor(Math.random() * (+max - +min)) + +min;
+    //var param="?qnumber="+1+"&type=easy";
+	window.open("level1.jsp",'_self'); 
+	
 }
-
+function preventBack() { window.history.forward(); }
+setTimeout("preventBack()", 0);
+window.onunload = function () { null };
 
 </script>
 
@@ -64,12 +84,12 @@ hr.style-eight:after {
 .AA{
   background-color: rgba(0, 0, 0, 0.65);
   width: 700px;
-  height: 500px;
+  height: 555px;
   margin: 0 auto;
-  margin-top: 50px;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-top: 20px;
+  padding-top: 2.5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 15px;
   color:#66FFFF;
   font-family: 'Playfair Display', serif;
@@ -96,12 +116,12 @@ h1{
     background-color: #10CED1; /* Green */
     border: none;
     color: white;
-    padding: 8px 28px;
+    padding: 4px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    margin: 4px 2px;
+    
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -120,7 +140,6 @@ h1{
     color: white;
     
 }
- 
 
 
   </style>
@@ -130,16 +149,18 @@ h1{
   <body id="bg">
       <div class="AA">
           <h1> <center>Rules!</center></h1>
-          <br><br><br>
-          <ol  style="font-size: 22px" >
-            <li> You will be given 2 hours to solve a maximum of 6 questions.</li>
-            <li> Participants are not allowed to hit the same number more than twice on the dartboard. </li>
-            <li> The winner of the game will be decided based on time and score. </li>
-            <li> Any team found cheating, at any point during the game will be disqualified immediately. </li>
-            <li> Judges' decision regarding the winners will be final and abiding. </li>
+          <br>
+          <ol  style="font-size: 20px">
+<li> Player need to hit at the centre of the dart board for a level to begin.</li>
+<li>You cannot go back at any point and blank answer is considered wrong.</li>
+<li>First is easy level : for each correct answer is +10 and wrong answer gives you -3.</li>
+<li>There is internal cut off for each level which you have to clear in order to go for the next level(easy: 25, medium: 50)</li>
+<li> Second level is medium with +20 for each right answer and -5 for each wrong.</li>
+<li> Third and final is hard level where each right answer is +50 and wrong is -10.</li>
+<li> Player with the  highest score is the winner.</li>
+<li>In case of any discrepancies the decision of the organizing committee is held final.</li>
           </ol>
    
-
-				<br><center><button onclick="myFunction()" class="button button1">Back</button></center>   
+<br><center><button onclick="myFunction()" class="button button1">Start</button></center>   
   </body>
 </html>

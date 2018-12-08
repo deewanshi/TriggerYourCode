@@ -17,6 +17,7 @@
   	session.setAttribute("questionnumber",2);
  	//int h,s,m;
  	user=new UserDao();
+ 	user.updateCurrentPage(session.getAttribute("username").toString(),"easy2.jsp");
  	//h=Integer.parseInt(request.getParameter("hours"));
  	//m=Integer.parseInt(request.getParameter("min"));
  	//s=Integer.parseInt(request.getParameter("sec"));
@@ -51,15 +52,13 @@
     </div>
     <div class="back">
       <h1 style="text-decoration: underline;">Problem</h1><br>
-      <p>Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.<br><br>
-<b>Note : The order of codes are not important. And input string does not contain 0s.</b><br><br> Input format : 
-A numeric string <br>
-Constraints : 
-1 <= Length of String S <= 10<br> Sample Input: 
-1123 <br>
-Sample Output: 
-aabc kbc alc 
-aaw kw 
+      <p>What is the output of the following code? Assume that the address of x is 2000 (in decimal) and an integer requires 
+      four bytes in memory.<br><br>
+int main()<br>
+{ <br>
+	unsigned int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};<br>
+	printf("%u,%u,%u",x+3,*(x+3),*(x+2)+3);<br>
+}<br>
 </p>
     </div>
   </div>
@@ -70,7 +69,7 @@ aaw kw
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea placeholder="Lets see " name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
+          <textarea placeholder="Write your answer here!" name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>

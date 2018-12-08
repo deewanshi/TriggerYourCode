@@ -17,8 +17,9 @@
   	session.setAttribute("questionnumber",1);
   	user=new UserDao();
   	//int t=user.getUserTime(username);
+  	user=new UserDao();
+	user.updateCurrentPage(session.getAttribute("username").toString(),"easy1.jsp");
   %>
-  <!-- <input type="hidden" name="temp" id="temp" value=put value of t here"/>-->
   <body style="background-image: url(images/background.jpg)">
   <div class="nav-container">
     <div class="navbar">
@@ -39,13 +40,10 @@
     </div>
     <div class="back">
       <h1 style="text-decoration: underline;">Problem</h1><br>
-      <p>void main(){<br/>
- 		 int myPointer*p=(int myPointer*)0XC0563331;<br/>
-   		 int myPointer*q=(int myPointer*)0xC2551341;<br/>
-   		 *p=200;<br/>
-   		  printf("%d",*q); <br/>
-		}
-
+      <p>What will be the output of the following conditional operator?<br><br>
+ 		 a=0?(3>2?23:(2>5?(7<6?34:48):64)):1;<br>
+   		 printf("%d",a);<br>
+   		 
 </p>
     </div>
   </div>
@@ -56,7 +54,7 @@
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea name="answer" id="answer" placeholder="Lets see " style="height: 286px;width: 526px;"></textarea>
+          <textarea name="answer" id="answer" placeholder="Write your answer here!" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>

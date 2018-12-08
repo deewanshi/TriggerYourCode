@@ -25,8 +25,9 @@
 	int status=userdao.addUser(user);
 	userdao=new UserDao();
 	//userdao.updateUserTime(username, 180);
-	if(status>0)
-		response.sendRedirect("succ.html");
+	if(status>0){
+		response.sendRedirect("succ.jsp");
+	}
 	else
 		response.sendRedirect("reg.jsp"); 
 	/*	out.println(request.getParameter("name"));

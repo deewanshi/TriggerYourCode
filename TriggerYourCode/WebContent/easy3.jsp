@@ -14,6 +14,7 @@
   	int score=user.getUserScore(session.getAttribute("username").toString());
   	session.setAttribute("score", score);
   	session.setAttribute("questionnumber",3);
+  	user.updateCurrentPage(session.getAttribute("username").toString(),"easy3.jsp");
   %>
 
 
@@ -39,15 +40,9 @@
     </div>
     <div class="back">
       <h1 style="text-decoration: underline;">Problem</h1><br>
-      <p>Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.<br><br>
-<b>Note : The order of codes are not important. And input string does not contain 0s.</b><br><br> Input format : 
-A numeric string <br>
-Constraints : 
-1 <= Length of String S <= 10<br> Sample Input: 
-1123 <br>
-Sample Output: 
-aabc kbc alc 
-aaw kw 
+      <p>What flavour of Network Address Translation can be used to have one IP address 
+      allow many users to connect to the global internet? 
+      <br>Write full form in lower case letters.
 </p>
     </div>
   </div>
@@ -58,7 +53,7 @@ aaw kw
       <fieldset>
         <div class="scroll-box">
     <p>
-          <textarea placeholder="Lets see " name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
+          <textarea placeholder="Write your answer here!" name="answer" id="answer" style="height: 286px;width: 526px;"></textarea>
         </p>
 
     </div>
